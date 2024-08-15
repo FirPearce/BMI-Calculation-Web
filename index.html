@@ -27,12 +27,18 @@
           <img src="/public/image/bmi.png" alt="calculator" width="100%" />
         </div>
         <div class="" style="display: grid">
-          <div class="item1" style="justify-content: center">
-            <h1>CalHub</h1>
-            <p>Your digital math assisstant</p>
+          <div class="item1">
+            <h1>BMI Hub</h1>
+            <p class="description">
+              The easiest way to check your Body Mass Index online. Just enter
+              your weight and height to instantly see where you stand on the BMI
+              scale. Whether you're monitoring your health or starting a fitness
+              journey, our tool provides quick, accurate results to help you
+              stay on track. Start now and take charge of your health!
+            </p>
           </div>
-          <div class="item2" style="display: flex; justify-content: center">
-            <button class="btn">Get Started</button>
+          <div class="item2">
+            <button class="btn-start" role="button">Get Started</button>
           </div>
         </div>
       </div>
@@ -41,11 +47,20 @@
 
     <!-- calculator section -->
     <section id="bmi-calculation">
-      <div class="container" style="display: flexbox">
+      <div class="container">
         <!-- buatkan form calculation dengan input slider -->
         <div class="calculation-slider">
           <h1>BMI Calculator</h1>
           <h4>Gender</h4>
+          <!-- image -->
+          <div>
+            <img
+              class="gender-image"
+              src=""
+              alt="gender"
+              id="gender-image"
+              hidden />
+          </div>
           <!-- input gender select -->
           <div>
             <input type="radio" id="male" name="gender" value="male" hidden />

@@ -1,7 +1,7 @@
 // create variable for calculate bmi
 let genderSelected = "";
 
-// fungsi rumus bmi
+// function bmi formula
 const bmiFormula = (weight, height) => {
   return weight / Math.pow(height / 100, 2);
 };
@@ -10,6 +10,28 @@ const bmiFormula = (weight, height) => {
 function selectGender(gender) {
   document.getElementById(gender).checked = true;
   genderSelected = gender;
+  genderImage(gender);
+}
+
+// function gender-image show
+function genderImage(gender) {
+  const genderImage = document.getElementById("gender-image");
+  if (gender == "") {
+    // hidden image
+    genderImage.src = "";
+    genderImage.alt = "gender";
+    genderImage.hidden = true;
+  }
+  if (gender == "male") {
+    genderImage.src = "public/image/men.png";
+    genderImage.alt = "men";
+    genderImage.hidden = false;
+  }
+  if (gender == "female") {
+    genderImage.src = "public/image/women.png";
+    genderImage.alt = "men";
+    genderImage.hidden = false;
+  }
 }
 
 // function on input weight slider
