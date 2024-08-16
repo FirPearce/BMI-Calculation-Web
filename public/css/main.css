@@ -1,24 +1,171 @@
-/* Mengatur font yang digunakan */
 body {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+#home {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  scroll-margin-top: 70px;
+}
 
 /* setting container */
+
 .container {
-  width: 80%; /* Controls the width of the container */
+  width: 90%; /* Controls the width of the container */
   max-width: 1200px; /* Limits the width to prevent it from becoming too wide */
   margin: 0 auto; /* Centers the container */
   padding: 20px; /* Adds padding inside the container */
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
-/* setting buton start */
+/* setting text */
+.text-warning {
+  color: #ff7e31;
+}
+
+.text-danger {
+  color: #e62c03;
+}
+
+.text-success {
+  color: #4caf50;
+}
+
+/* navbar setting */
+.navbar {
+  position: fixed; /* Make navbar fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 350px; /* Adjust padding if needed */
+  background-color: #f1613c; /* Background color for the entire navbar */
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+/* Ensure the navbar-logo and menu are properly styled */
+.navbar-logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-menu li {
+  display: inline;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Hide the navbar toggle (burger icon) on desktop */
+.navbar-toggle {
+  display: none;
+}
+
+/* setup home */
+#landing {
+  display: flex; /* Use Flexbox for layout */
+  justify-content: space-between; /* Space out children */
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  margin-top: 200px;
+}
+
+/* Tagline styles */
+.tagline {
+  flex: 1; /* Allow tagline to grow and shrink as needed */
+  display: flex; /* Use Flexbox for tagline content */
+  justify-content: flex-end; /* Align image to the right */
+}
+
+/* Ensure the image is responsive */
+.tagline img {
+  max-width: 90%;
+  height: auto;
+}
+
+/* Home-left styles */
+.home-left {
+  flex: 1; /* Allow home-left to grow and shrink as needed */
+  max-width: 30%; /* Adjust as needed */
+  text-align: left; /* Align text to the left */
+  font-weight: 600;
+}
+
+/* Styling for individual items */
+.home-left .item1 h1 {
+  font-size: 2em;
+  margin: 0 0 10px 0;
+}
+
+.home-left .item1 .description {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* description */
+#description {
+  background-color: #f09c88;
+  margin-top: 150px;
+  scroll-margin-top: 50px;
+}
+
+#bmi-calculation {
+  margin-top: 130px;
+}
+
+.calculation-slider {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute space between items */
+}
+
+/* Style for the left section */
+.left-section {
+  flex: 1; /* Take up half of the space */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* Style for the right section */
+.right-section {
+  flex: 1; /* Take up half of the space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* setting button start */
 .btn-start {
   background-color: initial;
   background-image: linear-gradient(-180deg, #ff7e31, #e62c03);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #000000;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -39,16 +186,392 @@ body {
   z-index: 9;
   border: 0;
   transition: box-shadow 0.2s;
-  float: left;
+  margin-right: 10px;
 }
+
+.gender-buttons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* Male button gradient */
+.male-button {
+  background-image: linear-gradient(
+    -180deg,
+    #ec5c3c,
+    #fc772d
+  ); /* Red to Orange gradient */
+}
+
+/* Female button gradient */
+.female-button {
+  background-image: linear-gradient(
+    -180deg,
+    #845d9c,
+    #cb3fa2
+  ); /* Purple to Pink gradient */
+}
+
+.female-button:hover {
+  background-color: rgba(0, 0, 0, 0.3); /* Darker backdrop on hover */
+}
+
+/* .btn-start i {
+  margin-right: 8px;
+} */
 
 .btn-start:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
 
+/* .calculation-slider {
+  display: flex;
+  flex-direction: column;
+} */
+
+.btn-calculate {
+  background-color: #fc772d;
+  background-image: linear-gradient(-180deg, #fc772d, #e62c03);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-right: 10px;
+}
+
+.btn-reset {
+  background-color: #ffffff;
+  border: 2px solid #fc772d;
+  border-radius: 6px;
+  color: #fc772d;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  z-index: 9;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.slider-value {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bmi-result {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.gender {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.gender-image {
+  height: 300px;
+}
+
+.weight-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.weight-controls {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.weight-controls span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.height-controls {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.height-controls .height-unit {
+  position: absolute;
+  right: 65px;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-controls .convert-m {
+  position: absolute;
+  right: 30px;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-controls span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+/* Style untuk container slider */
+.slider {
+  touch-action: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #f25419;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.bmi-result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.result-left,
+.result-right {
+  text-align: center;
+}
+
+.result-left {
+  margin-right: 10px;
+}
+
+.result-right {
+  margin-left: 10px; /* Jarak antara elemen kiri dan kanan */
+}
+
+.button-container {
+  grid-column: span 2; /* Mengatur tombol untuk mengambil dua kolom penuh */
+  display: flex;
+  justify-content: center; /* Menyelaraskan tombol di tengah secara horizontal */
+}
+
+.btn-detail {
+  background-color: #fc772d;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-detail:hover {
+  background-color: #e62c03;
+}
+
+.detail-container {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #fc772d;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* mobile */
 @media (max-width: 768px) {
+  /* navbar setting */
+  .navbar {
+    background-color: #f1613c; /* Background color of the navbar */
+    padding: 10px 20px; /* Add padding for better spacing */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    width: 100%; /* Ensure navbar takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    position: fixed; /* Fixed position to keep the navbar in view */
+  }
+
+  .navbar-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f1613c;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+
+  .navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .navbar-menu.active {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .navbar-menu li {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .navbar-toggle {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+  }
+
   .container {
-    width: 90%; /* Make the container take up 90% of the screen on smaller devices */
+    width: 90%;
+  }
+
+  #home {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    scroll-margin-top: 70px;
+  }
+
+  #description {
+    scroll-margin-top: 50px;
+  }
+
+  .tagline img {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  #landing {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tagline,
+  .home-left {
+    max-width: 100%; /* Full width on mobile */
   }
 
   .item1 {
@@ -57,17 +580,17 @@ body {
   }
 
   .item1 h1 {
-    margin: 5px 0; /* Reduces the space above and below the heading */
-    font-size: 2em; /* Adjusts the font size of the heading */
-    font-weight: bold; /* Makes the heading bold */
+    margin: 5px 0;
+    font-size: 2em;
+    font-weight: bold;
   }
 
   .item1 p {
-    margin: 10px 0; /* Increases space above and below the paragraph for better readability */
-    font-weight: 600; /* Adjusts the font weight of the paragraph */
-    line-height: 1.6; /* Increases line spacing for easier reading */
-    color: #333; /* Uses a dark grey color for less strain on the eyes */
-    max-width: 700px; /* Limits the width of the text block to make it easier to read */
+    margin: 10px 0;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #333;
+    max-width: 700px;
   }
 
   /* setting button start in smaller device */
@@ -81,23 +604,211 @@ body {
     margin-top: 10px;
   }
 
+  #bmi-calculation {
+    margin-top: 20px;
+    scroll-margin-top: 20px;
+  }
+
+  .calculation-slider {
+    flex-direction: column;
+  }
+
   .calculation-slider h1 {
     font-size: 2em;
   }
 
-  .gender-image {
-    height: 200px;
+  .gender {
+    display: flex;
+    margin-bottom: 20px;
   }
 
-  /* button start tidak terlalu panjang */
-}
+  .gender-image {
+    height: 300px;
+  }
 
-/* #landing {
-  width: 100%;
-  height: 100%;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .weight,
+  .height {
+    margin-top: 20px;
+  }
+
+  .weight-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .weight-controls {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .weight-controls span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    cursor: pointer;
+  }
+
+  .height-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .height-controls {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .height-controls .height-unit {
+    position: absolute;
+    right: 65px;
+    transform: translateY(-50%);
+    color: #777;
+    cursor: pointer;
+  }
+
+  .height-controls .convert-m {
+    position: absolute;
+    right: 30px;
+    transform: translateY(-50%);
+    color: #777;
+    cursor: pointer;
+  }
+
+  .height-controls span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    cursor: pointer;
+  }
+
+  /* Style untuk container slider */
+  .slider {
+    touch-action: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  .slider:hover {
+    opacity: 1;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #f25419;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .bmi-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+
+  .result-left,
+  .result-right {
+    text-align: center;
+  }
+
+  .result-left {
+    margin-right: 10px;
+  }
+
+  .result-right {
+    margin-left: 10px; /* Jarak antara elemen kiri dan kanan */
+  }
+
+  .button-container {
+    grid-column: span 2; /* Mengatur tombol untuk mengambil dua kolom penuh */
+    display: flex;
+    justify-content: center; /* Menyelaraskan tombol di tengah secara horizontal */
+  }
+
+  .btn-detail {
+    background-color: #fc772d;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-detail:hover {
+    background-color: #e62c03;
+  }
+
+  .detail-container {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+  }
+
+  .footer {
+    margin-top: 50px; /* Jarak atas footer */
+    background-color: #333; /* Warna latar belakang footer */
+    color: #fff; /* Warna teks */
+    padding: 20px;
+    text-align: center; /* Teks berada di tengah */
+  }
+
+  .footer-content {
+    max-width: 600px; /* Lebar maksimal untuk footer content */
+    margin: 0 auto; /* Pusatkan footer content */
+  }
+
+  .footer-links {
+    margin-top: 10px; /* Jarak di atas link */
+  }
+
+  .footer-links a {
+    color: #fc772d; /* Warna link sesuai color palette */
+    text-decoration: none; /* Hilangkan garis bawah link */
+    margin: 0 10px; /* Jarak horizontal antara link */
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+  }
+}

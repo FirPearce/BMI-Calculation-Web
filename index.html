@@ -12,21 +12,38 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="public/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="./public/css/main.css" />
   </head>
   <body>
     <!-- navbar section -->
-    <!-- endNavbar section -->
-    <!-- header section -->
-    <section>
-      <div
-        class="container"
-        id="landing"
-        style="margin-top: 10%; margin-bottom: 15%">
-        <div class="tagline">
-          <img src="/public/image/bmi.png" alt="calculator" width="100%" />
+    <section id="navbar">
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <a href="#home">Firly Taufikurohman</a>
         </div>
-        <div class="" style="display: grid">
+        <ul class="navbar-menu">
+          <li onclick="menuCLick(this)">
+            <a href="#home">Home</a>
+          </li>
+          <li onclick="menuCLick(this)"><a href="#description">About</a></li>
+          <li onclick="menuCLick(this)">
+            <a href="#bmi-calculation">Calculate BMI</a>
+          </li>
+        </ul>
+        <div class="navbar-toggle" id="navbar-toggle" onclick="toggleNavbar()">
+          <span>&#9776;</span>
+          <!-- Hamburger icon -->
+        </div>
+      </nav>
+    </section>
+    <!-- endNavbar section -->
+    <!-- home section -->
+    <section id="home">
+      <div class="container" id="landing">
+        <div class="home-left">
           <div class="item1">
             <h1>BMI Hub</h1>
             <p class="description">
@@ -38,110 +55,225 @@
             </p>
           </div>
           <div class="item2">
-            <button class="btn-start" role="button">Get Started</button>
+            <button class="btn-start" role="button" onclick="getStarted()">
+              Get Started
+            </button>
           </div>
+        </div>
+        <div class="tagline">
+          <img src="./public/image/bmi.png" alt="calculator" width="100%" />
         </div>
       </div>
     </section>
-    <!-- header end section -->
+    <!-- home end section -->
+
+    <!-- bmi description section -->
+    <section id="description">
+      <div class="container">
+        <h2>What is BMI?</h2>
+        <p>
+          Body Mass Index (BMI) is a person's weight in kilograms divided by the
+          square of height in meters. A high BMI can be an indicator of high
+          body fatness. BMI can be used to screen for weight categories that may
+          lead to health problems but it is not diagnostic of the body fatness
+          or health of an individual.
+        </p>
+        <h2>What is the BMI scale?</h2>
+        <p>
+          The BMI scale is a general guideline to categorize a person's weight
+          status. The categories are as follows:
+        </p>
+        <ul>
+          <li>Underweight: BMI less than 18.5</li>
+          <li>Normal weight: BMI 18.5 - 24.9</li>
+          <li>Overweight: BMI 25 - 29.9</li>
+          <li>Obesity: BMI 30 or more</li>
+        </ul>
+        <h2>What are the limitations of BMI?</h2>
+        <p>
+          BMI is a screening tool, not a diagnostic tool. It does not directly
+          measure body fat, muscle mass, bone density, or body water. It is
+          possible for a person to have a high BMI and be healthy or have a
+          normal BMI and be unhealthy. The BMI scale should be used as a general
+          guideline and not as a definitive measure of health.
+        </p>
+      </div>
+    </section>
+    <!-- bmi description end -->
 
     <!-- calculator section -->
     <section id="bmi-calculation">
       <div class="container">
         <!-- buatkan form calculation dengan input slider -->
+        <h1>BMI Calculator</h1>
+        <hr />
         <div class="calculation-slider">
-          <h1>BMI Calculator</h1>
-          <h4>Gender</h4>
-          <!-- image -->
-          <div>
-            <img
-              class="gender-image"
-              src=""
-              alt="gender"
-              id="gender-image"
-              hidden />
-          </div>
-          <!-- input gender select -->
-          <div>
-            <input type="radio" id="male" name="gender" value="male" hidden />
-            <label for="male">
-              <button type="button" onclick="selectGender('male')">Male</button>
-            </label>
+          <div class="left-section">
+            <!-- image -->
+            <div class="image-wrapper">
+              <img
+                class="gender-image"
+                src=""
+                alt="gender"
+                id="gender-image"
+                hidden />
+            </div>
+            <!-- input gender select -->
+            <div class="gender">
+              <input type="radio" id="male" name="gender" value="male" hidden />
+              <label for="male">
+                <button
+                  type="button"
+                  class="btn-start male-button"
+                  onclick="selectGender('male')">
+                  <i class="fas fa-mars"></i> Male
+                </button>
+              </label>
 
-            <input
-              type="radio"
-              id="female"
-              name="gender"
-              value="female"
-              hidden />
-            <label for="female">
-              <button type="button" onclick="selectGender('female')">
-                Female
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                hidden />
+              <label for="female">
+                <button
+                  type="button"
+                  class="btn-start female-button"
+                  onclick="selectGender('female')">
+                  <i class="fas fa-venus"></i> Female
+                </button>
+              </label>
+            </div>
+          </div>
+
+          <div class="right-section">
+            <div class="weight">
+              <h2>Weight</h2>
+              <div class="weight-controls">
+                <input
+                  class="weight-input"
+                  type="number"
+                  id="weight-input"
+                  min="0"
+                  max="150"
+                  value="0"
+                  oninput="updateWeightSlider(this.value)" />
+                <span class="weight-unit">KG</span>
+              </div>
+              <input
+                class="slider"
+                type="range"
+                name="weight"
+                id="weight-slider"
+                min="0"
+                max="150"
+                value="0"
+                oninput="updateWeightInput(this.value)"
+                onmousemove="updateWeightInput(this.value)" />
+            </div>
+
+            <div class="height">
+              <h2>Height</h2>
+              <div class="height-controls">
+                <input
+                  class="height-input"
+                  type="number"
+                  id="height-input"
+                  min="0"
+                  max="250"
+                  value="0"
+                  oninput="updateHeightSlider(this.value)" />
+                <span class="height-unit">CM /</span>
+                <span class="convert-m" id="convert-m">0</span>
+                <span>M</span>
+              </div>
+
+              <input
+                class="slider"
+                type="range"
+                name="height"
+                id="height-slider"
+                min="0"
+                max="250"
+                value="0"
+                oninput="updateHeightInput(this.value)"
+                onmousemove="updateWeightInput(this.value)" />
+              <!-- input with label -->
+            </div>
+            <div class="slider-value">
+              <button
+                class="btn-calculate"
+                id="calculate"
+                onclick="validateInput()">
+                Calculate
               </button>
-            </label>
-          </div>
-          <h2>Weight</h2>
-          <input
-            type="range"
-            name="weight"
-            id="weight-slider"
-            min="0"
-            max="150"
-            value="0"
-            oninput="updateWeightInput(this.value)" />
-          <!-- input with label-->
-          <input
-            type="number"
-            id="weight-input"
-            min="0"
-            max="150"
-            value="0"
-            oninput="updateWeightSlider(this.value)" />
-          KG
-
-          <h2>Height</h2>
-          <input
-            type="range"
-            name="height"
-            id="height-slider"
-            min="0"
-            max="250"
-            value="0"
-            oninput="updateHeightInput(this.value)" />
-          <!-- input with label -->
-          <input
-            type="number"
-            id="height-input"
-            min="0"
-            max="250"
-            value="0"
-            oninput="updateHeightSlider(this.value)" />
-          CM
-          <label> <span id="convert-m">0</span> M </label>
-
-          <div class="slider-value" style="margin-top: 20px">
-            <button class="btn" id="calculate" onclick="validateInput()">
-              Calculate
-            </button>
-            <button class="btn" id="reset">Reset</button>
+              <button class="btn-reset" id="reset" onclick="reset()">
+                Reset
+              </button>
+            </div>
           </div>
         </div>
+
         <!-- buatkan bagian untuk hasil bmi -->
         <div class="bmi-result">
-          <h2>Your BMI</h2>
-          <p id="bmi-value">0</p>
-          <h2>Category</h2>
-          <p id="bmi-category">Normal</p>
+          <div class="result-left">
+            <h2>Your BMI</h2>
+            <p id="bmi-value">0</p>
+          </div>
+          <div class="result-right">
+            <h2>Category</h2>
+            <p class="" id="bmi-category">Not Calculated</p>
+          </div>
+          <div class="button-container">
+            <!-- add button detail -->
+            <button
+              class="btn-detail"
+              id="btn-detail"
+              onclick="showDetail()"
+              hidden>
+              Detail
+            </button>
+          </div>
+        </div>
+
+        <!-- detail container -->
+        <div class="detail-container" id="detail-container" hidden>
+          <div class="detail-content">
+            <h2 id="title-detail">BMI Calculation Details</h2>
+            <h3 id="value-bmi"></h3>
+            <div id="bmi-details"></div>
+          </div>
         </div>
       </div>
     </section>
     <!-- calculator end section -->
 
     <!-- footer section -->
-    <section></section>
+    <section id="footer">
+      <footer class="footer">
+        <div class="footer-content">
+          <p>Made with HTML, CSS, Javascript</p>
+          <div class="footer-links">
+            <a
+              href="https://github.com/FirPearce"
+              target="_blank"
+              class="footer-icon">
+              <i class="fab fa-github"></i> Firpearce
+            </a>
+            <a
+              href="https://www.linkedin.com/in/firly-taufikurohman"
+              target="_blank"
+              class="footer-icon">
+              <i class="fab fa-linkedin"></i> Firly Taufikurohman
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
     <!-- footer end section -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
-    <script src="public/javascript/main.js"></script>
+    <script src="./public/javascript/main.js"></script>
   </body>
 </html>
