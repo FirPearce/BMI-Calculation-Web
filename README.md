@@ -2,6 +2,8 @@
 
 This is a simple and responsive Body Mass Index (BMI) calculator website. The calculator allows users to enter their weight and height to determine their BMI, helping them to monitor their health and fitness goals.
 
+https://firpearce.github.io/BMI-Calculation-Web/
+
 ## Table of Contents
 
 - [Features](#features)
